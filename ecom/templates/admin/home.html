@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+}
+
+#wrapper {
+  display: flex;
+}
+
+#sidebar {
+  width: 250px;
+  height: 100vh;
+}
+
+#sidebar ul {
+  padding: 0;
+  list-style: none;
+}
+
+#sidebar ul li {
+  margin: 10px 0;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#sidebar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#page-content {
+  overflow-x: hidden;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 18px;
+  color: #555;
+}
+
+  </style>
+</head>
+<body>
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-primary text-white p-3">
+      <h2 class="text-center">Admin</h2>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Page Content -->
+    <div id="page-content" class="w-100">
+      <!-- Top Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="btn btn-primary" id="menu-toggle">☰</button>
+          <h4 class="ms-auto">Welcome, Admin</h4>
+        </div>
+      </nav>
+      <!-- Main Content -->
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Total Users</h5>
+                <p class="card-text display-6">120</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">New Orders</h5>
+                <p class="card-text display-6">45</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Revenue</h5>
+                <p class="card-text display-6">$10,000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <h5>Recent Activity</h5>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Activity</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>New user registered</td>
+                <td>10 mins ago</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Order placed</td>
+                <td>30 mins ago</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Settings updated</td>
+                <td>1 hour ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Toggle sidebar
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      document.getElementById('sidebar').classList.toggle('d-none');
+    });
+  </script>
+</body>
+</html>

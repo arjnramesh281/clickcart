@@ -1,0 +1,19 @@
+body {
+    background-color: lightskyblue;
+  }
+  
+  .card {
+    border-radius: 10px;
+    border: none;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+  }
+  
