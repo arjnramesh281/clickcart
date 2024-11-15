@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  #wrapper {
+    display: flex;
+  }
+  
+  #sidebar {
+    width: 250px;
+    height: 100vh;
+  }
+  
+  #sidebar ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  #sidebar ul li {
+    margin: 10px 0;
+  }
+  
+  #sidebar ul li a {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  #sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  #page-content {
+    overflow-x: hidden;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    color: #555;
+  }

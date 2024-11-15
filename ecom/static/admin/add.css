@@ -1,0 +1,73 @@
+    /* Apply background color to the body */
+    body {
+      background-color:lightskyblue; /* Light Sky Blue */
+      margin-top: 50px;
+      margin-bottom: 30%;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Styling for the card */
+    .card {
+      width: 75%; /* 75% width */
+      max-width: 800px;
+      height: auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      background-color: #fff;
+    }
+
+    /* Card heading */
+    h2 {
+      font-size: 26px;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    /* Input fields and textarea styling */
+    input.form-control, textarea.form-control {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 15px;
+      font-size: 16px;
+    }
+
+    /* Input focus effect */
+    input.form-control:focus, textarea.form-control:focus {
+      border-color: #28a745;
+      box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+    }
+
+    /* Submit button */
+    button.btn {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 5px;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button.btn:hover {
+      background-color: #218838;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+        padding: 25px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+    }
