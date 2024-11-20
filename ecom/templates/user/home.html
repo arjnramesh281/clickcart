@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menswear Shop</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  {% load static %}
+</head>
+<body class="bg-light">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Menswear Shop</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-outline-light ms-2" href="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="bg-dark text-white text-center py-5" style="background-image: url('https://via.placeholder.com/1920x800?text=Menswear+Shop'); background-size: cover; background-position: center; height: 80vh;">
+    <div class="container d-flex flex-column justify-content-center align-items-center h-100">
+      <h1 class="display-4 fw-bold">Elevate Your Style</h1>
+      <p class="lead">Discover the latest trends in menswear</p>
+      <a href="#" class="btn btn-primary btn-lg mt-3">Shop Now</a>
+    </div>
+  </div>
+
+  <!-- Featured Products Section -->
+  <div class="container">
+    <div class="row">
+      {% for pro in products %}
+      <div class="card" style="width:400px">
+        <img class="card-img-top" src="{{pro.img.url}}" alt="Card image" style="height: 450px;">
+        <div class="card-body">
+          <h4 class="card-title">{{pro.name}}</h4>
+          <p class="card-text">₹{{pro.price}}.00</p>
+          <p class="card-text">₹{{pro.off_price}}.00</p>
+          <a href="#" class="btn btn-primary">View More</a>
+          <!-- <a href="#" class="btn btn-success">Buy Now</a> -->
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    </div>
+
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">&copy; 2024 Menswear Shop. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
