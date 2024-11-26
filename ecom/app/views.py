@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .models import *
 from django.contrib.auth.models import User
+import os
 
 # Create your views here.
 def log(req):
@@ -13,6 +14,7 @@ def log(req):
     if req.method=='POST':
         username=req.POST['username']
         password=req.POST['password']
+        print(username+password)
         data=authenticate(username=username,password=password)
         if data:
             login(req,data)
@@ -104,5 +106,52 @@ def add_to_cart(req,pid):
     data.save()
     return redirect(view_cart)
 
+
 def view_cart(req):
-    return render(req,'user/cart.html')
+    user=User.objects.get(username=req.session['user'])
+    data=Cart.objects.filter(user=user)
+    return render(req,'user/cart.html',{'cart':data})
+
+def qty_in(req,cid):
+    data=Cart.objects.get(pk=cid)
+    data.qty+=1
+    data.save()
+    return redirect(view_cart)
+
+def qty_dec(req,cid):
+    data=Cart.objects.get(pk=cid)
+    data.qty-=1
+    data.save()
+    print(data.qty)
+    if data.qty==0:
+        data.delete()
+    return redirect(view_cart)
+
+def cart_pro_buy(req,cid):
+    cart=Cart.objects.get(pk=cid)
+    product=cart.product
+    user=cart.user
+    qty=cart.qty
+    price=product.off_price*qty
+    total_price=product.off_price*qty
+    buy=Buy.objects.create(product=product,user=user,qty=qty,price=price)
+    buy.save()
+    return redirect(bookings)
+
+def pro_buy(req,pid):
+    product=Product.objects.get(pk=pid)
+    user=User.objects.get(username=req.session['user'])
+    qty=1
+    price=product.off_price
+    buy=Buy.objects.create(product=product,user=user,qty=qty,price=price)
+    buy.save()
+    return redirect(bookings)
+
+def bookings(req):
+    user=User.objects.get(username=req.session['user'])
+    buy=Buy.objects.filter(user=user)[::-1]
+    return render(req,'user/bookings.html',{})
+
+def view_bookings(req):
+    buy=Buy.objects.all()[::-1]
+    return render(req,'shop/bookings.html',{'buys':buy})
