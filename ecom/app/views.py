@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import *
 from django.contrib.auth.models import User
 import os
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def log(req):
@@ -79,6 +81,8 @@ def reg(req):
         try:
             data=User.objects.create_user(first_name=username,email=email,username=email,password=password)
             data.save()
+            send_mail('Account created', 'Your account has been created in Clickcart', settings.EMAIL_HOST_USER, [email])
+
         except:
             messages.warning(req, " This Email Already In Use.")
             return redirect(reg)
