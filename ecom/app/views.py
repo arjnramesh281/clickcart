@@ -47,6 +47,10 @@ def admin_home(req):
         return render(req,'admin/home.html',{'products':data})
     else:
         return redirect(log)
+    
+def admin_user_view(req):
+    users=User.objects.all()
+    return render(req,'admin/view_user.html',{'users':users})
 
 
 # add product

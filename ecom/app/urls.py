@@ -9,6 +9,7 @@ urlpatterns=[
     path("logout",views.admin_logout),
     path("add",views.add_pro),
     path("view_bookings",views.view_bookings),
+    path('user_view',views.admin_user_view),
 
     # user 
 
